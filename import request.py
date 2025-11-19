@@ -6,8 +6,8 @@ import subprocess
 # Yeh headers wahi hain jo browser ne bheje the
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0",
-    "Origin": "https://megatron-x1-api.vercel.app",
-    "Referer": "https://megatron-x1-api.vercel.app/",
+    "Origin": "https://appx-play.akamai.net.in",
+    "Referer": "https://appx-play.akamai.net.in/",
     "Accept": "*/*",
     "Accept-Language": "en-US,en;q=0.9",
     "Accept-Encoding": "gzip, deflate, br, zstd"
