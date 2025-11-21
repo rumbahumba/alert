@@ -20,7 +20,7 @@ from pytube import YouTube
 from aiohttp import web
 from bs4 import BeautifulSoup
 from datetime import datetime 
-
+from headers import download_with_classx_headers
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors import FloodWait
