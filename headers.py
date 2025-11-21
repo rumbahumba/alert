@@ -10,7 +10,7 @@ def download_with_classx_headers(url, output_name=None):
         filename = url.split("/")[-1].split("?")[0].split("*")[0]
         output_name = f"ClassX_{filename}"
 
-    command = [
+    cmd = [
         "yt-dlp",
         "--referer", "https://appx-play.akamai.net.in/",
         "--user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0",
@@ -22,7 +22,7 @@ def download_with_classx_headers(url, output_name=None):
     ]
 
     try:
-        subprocess.run(command, check=True)
+        subprocess.run(cmd, check=True)
         print(f"[✓] SUCCESS → {output_name} downloaded!")
         return True
     except subprocess.CalledProcessError as e:
