@@ -334,7 +334,7 @@ async def txt_handler(bot: Client, m: Message):
                     base_url, key = url.split("*", 1)
                     base_url = base_url.split("?")[0]
                     base_url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
-                    url = f"{base_url,headers=headers.cmd}*{key}"
+                    url = f"{base_url}*{key}"
                 else:
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
