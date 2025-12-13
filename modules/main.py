@@ -110,7 +110,7 @@ class Data:
         "🌟 Welcome {0}! 🌟\n\n"
     )
 # Define the start command handler
-@bot.on_message(filters.command("sam1"))
+@bot.on_message(filters.command("start"))
 async def start(client: Client, msg: Message):
     user = await client.get_me()
     mention = user.mention
@@ -160,7 +160,7 @@ async def restart_handler(_, m):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-@bot.on_message(filters.command(["/drm2"]) )
+@bot.on_message(filters.command(["drm2"]) )
 async def txt_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and wait.**")
     input: Message = await bot.listen(editable.chat.id)
