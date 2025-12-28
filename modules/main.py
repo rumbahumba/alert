@@ -302,8 +302,8 @@ async def txt_handler(bot: Client, m: Message):
             elif "static-trans-v2.classx.co.in" in url:
                 base_clean = base_clean.replace("https://static-trans-v2.classx.co.in", "https://transcoded-videos-v2.classx.co.in")
                 url = f"{base_clean}*{signature}"
-                response = requests.get('url'', headers=headers1)
-                url = response.json()['url']
+                response = requests.get(url, headers=headers1)
+                print(response)
                      
             elif "https://static-rec.classx.co.in/drm/" in url:
                       base_with_params, signature = url.split("*")
@@ -312,7 +312,10 @@ async def txt_handler(bot: Client, m: Message):
 
                      base_clean = base_clean.replace("https://static-rec.classx.co.in", "https://appx-recordings-mcdn.akamai.net.in")
 
-                url = f"{base_clean}*{signature}"
+                     url = f"{base_clean}*{signature}"
+                     response = requests.get(url, headers=headers)
+
+                    print(response.status_code)
 
              
             elif "https://static-wsb.classx.co.in/" in url:
@@ -321,6 +324,9 @@ async def txt_handler(bot: Client, m: Message):
                 clean_url = clean_url.replace("https://static-wsb.classx.co.in", "https://appx-wsb-gcp-mcdn.akamai.net.in")
 
                 url = clean_url
+            response = requests.get(url, headers=headers1)
+
+                    print(response.status_code)
 
             elif "https://static-db.classx.co.in/" in url:
                 if "*" in url:
@@ -328,6 +334,9 @@ async def txt_handler(bot: Client, m: Message):
                     base_url = base_url.split("?")[0]
                     base_url = base_url.replace("https://static-db.classx.co.in", "https://appxcontent.kaxa.in")
                     url = f"{base_url}*{key}"
+                    response = requests.get(url, headers=headers1)
+
+                    print(response.status_code)
                 else:
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db.classx.co.in", "https://appxcontent.kaxa.in")
@@ -339,10 +348,15 @@ async def txt_handler(bot: Client, m: Message):
                     base_url = base_url.split("?")[0]
                     base_url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
                     url = f"{base_url}*{key}"
+                    response = requests.get(url, headers=headers1)
+
+                    print(response.status_code)
                 else:
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
-                           
+                    response = requests.get(url, headers=headers1)
+
+                    print(response.status_code)       
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
             else:
