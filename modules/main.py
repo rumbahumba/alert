@@ -291,26 +291,30 @@ async def txt_handler(bot: Client, m: Message):
                 url = url.split("bcov_auth")[0]+bcov
                 
             elif "https://static-trans-v1.classx.co.in" in url or "https://static-trans-v2.classx.co.in" in url:
+                headers1 = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0', 'Origin': 'https://player.akamai.net.in','Referer': 'https://player.akamai.net.in', 'Accept': '*/*', 'Accept-Language': 'en-US,en;q=0.9', 'Accept-Encoding': 'gzip, deflate, br, zstd'}
                 base_with_params, signature = url.split("*")
 
                 base_clean = base_with_params.split(".mkv")[0] + ".mkv"
-
+                
                 if "static-trans-v1.classx.co.in" in url:
                     base_clean = base_clean.replace("https://static-trans-v1.classx.co.in", "https://appx-transcoded-videos-mcdn.akamai.net.in")
-                elif "static-trans-v2.classx.co.in" in url:
-                    base_clean = base_clean.replace("https://static-trans-v2.classx.co.in", "https://transcoded-videos-v2.classx.co.in")
-
+               
+            elif "static-trans-v2.classx.co.in" in url:
+                base_clean = base_clean.replace("https://static-trans-v2.classx.co.in", "https://transcoded-videos-v2.classx.co.in")
                 url = f"{base_clean}*{signature}"
-            
+                response = requests.get('url'', headers=headers1)
+                url = response.json()['url']
+                     
             elif "https://static-rec.classx.co.in/drm/" in url:
-                base_with_params, signature = url.split("*")
+                      base_with_params, signature = url.split("*")
 
-                base_clean = base_with_params.split("?")[0]
+                      base_clean = base_with_params.split("?")[0]
 
-                base_clean = base_clean.replace("https://static-rec.classx.co.in", "https://appx-recordings-mcdn.akamai.net.in")
+                     base_clean = base_clean.replace("https://static-rec.classx.co.in", "https://appx-recordings-mcdn.akamai.net.in")
 
                 url = f"{base_clean}*{signature}"
 
+             
             elif "https://static-wsb.classx.co.in/" in url:
                 clean_url = url.split("?")[0]
 
