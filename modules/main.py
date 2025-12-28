@@ -313,7 +313,7 @@ async def txt_handler(bot: Client, m: Message):
                      base_clean = base_clean.replace("https://static-rec.classx.co.in", "https://appx-recordings-mcdn.akamai.net.in")
 
                      url = f"{base_clean}*{signature}"
-                     response = requests.get(url, headers=headers)
+                     response = requests.get(url, headers=headers1)
 
                     print(response.status_code)
 
